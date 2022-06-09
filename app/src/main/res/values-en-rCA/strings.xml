@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lab1</string>
-    <string name="hello_message">Greetings from Canada, World!</string>
-    <string name="ButtonText">I\'m a Canadian button</string>
+    <string name="app_name">Lab2</string>
+    <string name="ButtonText">CLICK HERE</string>
+    <string name="toast_message">Here is more information</string>
+    <string name="sbon">The switch is now on</string>
+    <string name="sboff">The switch is now off</string>
+    <string name="header">Lab 2 GUI</string>
+    <string name="CheckboxText">Check this out</string>
+    <string name="SwitchText">Switch on/off</string>
+    <string name="EditText">Enter Name Here</string>
 </resources>
