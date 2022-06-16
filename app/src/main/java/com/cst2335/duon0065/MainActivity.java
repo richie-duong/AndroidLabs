@@ -2,42 +2,48 @@ package com.cst2335.duon0065;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.Toast;
+import android.widget.EditText;
 
-import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText email;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_constraint);
+        setContentView(R.layout.activity_main_linear);
+        email = findViewById(R.id.editEmail);
 
-        Button btn = findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
+        SharedPreferences sp = getSharedPreferences("SP_EMAIL", Context.MODE_PRIVATE);
+        String a = sp.getString("SP_EMAIL","");
+        email.setText(a);
+
+        Button button = findViewById(R.id.login_button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(MainActivity.this, getResources().getString(R.string.toast_message), Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+                Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                goToProfile.putExtra("emailKey", email.getText().toString());
+                startActivity(goToProfile);
             }
         });
+    }
 
-        CompoundButton s = findViewById(R.id.swtch);
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences sp = getSharedPreferences("SP_EMAIL", MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sp.edit();
 
-        s.setOnCheckedChangeListener((cb, b) -> {
-            if (b){
-                Snackbar sp = Snackbar.make(s, getString(R.string.sbon), Snackbar.LENGTH_LONG);
-                sp.show();
-                sp.setAction( "Undo", click -> cb.setChecked(!b));
-            } else {
-                Snackbar sp = Snackbar.make(s, getString(R.string.sboff), Snackbar.LENGTH_LONG);
-                sp.show();
-                sp.setAction( "Undo", click -> cb.setChecked(!b));
-            }
-
-        });
+        myEdit.putString("SP_EMAIL", email.getText().toString());
+        myEdit.apply();
     }
 }

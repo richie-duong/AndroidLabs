@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Lab2</string>
-    <string name="ButtonText">CLICK HERE</string>
-    <string name="toast_message">Here is more information</string>
-    <string name="sbon">The switch is now on</string>
-    <string name="sboff">The switch is now off</string>
-    <string name="header">Lab 2 GUI</string>
-    <string name="CheckboxText">Check this out</string>
-    <string name="SwitchText">Switch on/off</string>
-    <string name="EditText">Enter Name Here</string>
+    <string name="app_name">Lab 3</string>
+    <string name="email_text">Enter your email address:</string>
+    <string name="email_hint">Type email here</string>
+    <string name="pwd_text">Type your password:</string>
+    <string name="login_button">Login</string>
+
+    <string name="app_name2">Profile Activity</string>
+    <string name="profile_header">Your profile</string>
+    <string name="name_text">Your name:</string>
+    <string name="name_hint">Enter your name</string>
+    <string name="email_text_profile">Your email:</string>
+    <string name="email_hint_profile">Enter your email</string>
+    <string name="picture_text">Your picture:</string>
+    <string name="pic_directions">Click the button above to take a picture</string>
+
 </resources>
