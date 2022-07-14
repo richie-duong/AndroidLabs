@@ -15,4 +15,9 @@
     <string name="picture_text">Your picture:</string>
     <string name="pic_directions">Click the button above to take a picture</string>
 
+    <string name="goToChat_String">Go to chat</string>
+    <string name="send_Button">Send</string>
+    <string name="receive_Button">Receive</string>
+    <string name="chat_Hint">Type here</string>
+
 </resources>

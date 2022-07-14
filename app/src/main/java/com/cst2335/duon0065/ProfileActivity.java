@@ -13,6 +13,7 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.util.Log;
@@ -20,6 +21,7 @@ import android.util.Log;
 public class ProfileActivity extends AppCompatActivity {
     ImageButton img;
     EditText emailEditText;
+    Button button;
     public static final String TAG = "PROFILE_ACTIVITY";
     public static String ACTIVITY_NAME;
 
@@ -33,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         img = findViewById(R.id.cameraButton);
         emailEditText = findViewById(R.id.emailEditText);
+        button = findViewById(R.id.goToChat_button);
 
         Intent fromMain = getIntent();
         emailEditText.setText(fromMain.getStringExtra("emailKey"));
@@ -59,6 +62,14 @@ public class ProfileActivity extends AppCompatActivity {
                 if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
                     myPictureTakerLauncher.launch(takePictureIntent);
                 }
+            }
+        });
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToChatRoom = new Intent(ProfileActivity.this, ChatRoomActivity.class);
+                startActivity(goToChatRoom);
             }
         });
     }
