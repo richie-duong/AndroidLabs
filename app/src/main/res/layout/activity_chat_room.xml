@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ChatRoomActivity"
     android:orientation="vertical"
+    android:layout_marginTop="27dp"
+    android:layout_marginBottom="27dp"
+    android:layout_marginLeft="48dp"
+    android:layout_marginRight="48dp"
     >
 
 
@@ -29,7 +33,7 @@
             android:layout_weight="1"
             android:gravity="fill"
             android:textAlignment="center"
-           />
+            tools:ignore="RtlCompat" />
 
         <EditText
             android:id="@+id/editText3"
@@ -51,7 +55,7 @@
             android:layout_weight="1"
             android:gravity="fill"
             android:textAlignment="center"
-            />
+            tools:ignore="RtlCompat" />
 
     </LinearLayout>
 
