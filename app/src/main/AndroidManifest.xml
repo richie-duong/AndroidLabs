@@ -4,6 +4,7 @@
     package="com.cst2335.duon0065">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.type.watch"/>
 
     <uses-feature
         android:name="android.hardware.camera"
