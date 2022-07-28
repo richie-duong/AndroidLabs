@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab 5</string>
+    <string name="app_name">Lab 6</string>
     <string name="email_text">Enter your email address:</string>
     <string name="email_hint">Type email here</string>
     <string name="pwd_text">Type your password:</string>
@@ -18,4 +18,14 @@
     <string name="send_Button">Send</string>
     <string name="receive_Button">Receive</string>
     <string name="chat_Hint">Type here</string>
+
+    <string name="goToWeather_String">View Weather:</string>
+    <string name="currentTemp_label">Current Temperature:</string>
+    <string name="minTemp_label">Minimum Temperature:</string>
+    <string name="maxTemp_label">Maximum Temperature:</string>
+    <string name="uvRating_label">UV Rating:</string>
+
+
+
+
 </resources>
