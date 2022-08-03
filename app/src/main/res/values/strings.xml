@@ -22,7 +22,7 @@
     <string name="goToWeather_String">Weather Forecast</string>
     <string name="currentTemp_label">Current Temperature:</string>
     <string name="minTemp_label">Minimum Temperature:</string>
-    <string name="maxTemp_label">Maximum Temperature:</string>
+    <string name="maxTemp_label">Max Temperature:</string>
     <string name="uvRating_label">UV Rating:</string>
 
 
