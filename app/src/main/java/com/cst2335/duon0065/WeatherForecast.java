@@ -125,7 +125,7 @@ public class WeatherForecast extends AppCompatActivity {
                 UV = Float.toString(uvRating);
 
 
-                String imgURL = "http://openweathermap.org/img/w/" + iconName + ".png";
+                String imgURL = "https://openweathermap.org/img/w/" + iconName + ".png";
                 Bitmap image = null;
                 URL img_Url = new URL(imgURL);
                 HttpURLConnection connection = (HttpURLConnection) img_Url.openConnection();
