@@ -140,12 +140,12 @@ public class WeatherForecast extends AppCompatActivity {
 
                         Bitmap bm = BitmapFactory.decodeStream(fis);
 
-                        Log.e("Found", "Found image: " + iconName);
+                        Log.e("Found", "Found weather icon from OpenWeatherMap: " + iconName);
                         weatherPic.setImageBitmap(bm);
 
                     } else {
                         image = BitmapFactory.decodeStream(connection.getInputStream());
-                        Log.e("Not found", "Not found, downloading: " + iconName);
+                        Log.e("Not found", "Weather icon not found, now downloading: " + iconName);
                         FileOutputStream outputStream = openFileOutput(iconName + ".png", Context.MODE_PRIVATE);
                         image.compress(Bitmap.CompressFormat.PNG, 80, outputStream);
                         outputStream.flush();
