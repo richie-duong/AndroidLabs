@@ -1,8 +1,11 @@
 package com.cst2335.duon0065;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import android.app.AlertDialog;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -27,10 +31,17 @@ public class ChatRoomActivity extends AppCompatActivity {
     ListAdapter adapter;
     SQLiteDatabase db;
 
+    public static final String ITEM_ID = "ITEM ID";
+    public static final String ITEM_SELECTED = "ITEM SELECTED";
+    public static final String ITEM_POSITION = "ITEM POSITION";
+    public static String IS_SEND = "IS SEND";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_room);
+
+        boolean isTablet = findViewById(R.id.frameLayout) != null;
         loadDatabase();
 
         ListView chatLog = findViewById(R.id.messageList);
@@ -83,11 +94,43 @@ public class ChatRoomActivity extends AppCompatActivity {
                         deleteMessage(selectedMessage);
                         messageList.remove(messageList.get(pos));
                         adapter.notifyDataSetChanged();
+
+                        if(isTablet) {
+                            Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frameLayout);
+                            getSupportFragmentManager()
+                                    .beginTransaction()
+                                    .remove(fragment)
+                                    .commit();
+                        }
+
                     })
                     .setNegativeButton("CANCEL", (click, arg) -> {
                     })
                     .create().show();
             return true;
+        });
+
+        chatLog.setOnItemClickListener((list, view, pos, id) -> {
+            Message selectedMessage = messageList.get(pos);
+
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString(ITEM_SELECTED, selectedMessage.getMsg());
+            dataToPass.putInt(ITEM_POSITION, pos);
+            dataToPass.putLong(ITEM_ID, selectedMessage.getId());
+            dataToPass.putInt(IS_SEND, selectedMessage.msgType);
+
+            if(isTablet) {
+                DetailsFragment dFragment = new DetailsFragment();
+                dFragment.setArguments(dataToPass);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.frameLayout, dFragment)
+                        .commit();
+            } else {
+                Intent nextActivity = new Intent(ChatRoomActivity.this, EmptyActivity.class);
+                nextActivity.putExtras(dataToPass);
+                startActivity(nextActivity);
+            }
         });
 
     }

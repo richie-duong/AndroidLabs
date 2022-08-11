@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lab 6</string>
+    <string name="app_name">Lab 7</string>
     <string name="email_text">Enter your email address:</string>
     <string name="email_hint">Type email here</string>
     <string name="pwd_text">Type your password:</string>
@@ -25,7 +25,14 @@
     <string name="maxTemp_label">Maximum Temperature:</string>
     <string name="uvRating_label">UV Rating:</string>
 
+    <!-- Lab 7 -->
+    <string name ="frag_title">Message Here</string>
+    <string name="frag_title2">ID=</string>
+    <string name="checkboxSend">Is a Send Message</string>
+    <string name="fragButton">HIDE</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
